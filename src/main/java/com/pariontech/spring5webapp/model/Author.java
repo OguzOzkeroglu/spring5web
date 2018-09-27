@@ -3,17 +3,29 @@ package com.pariontech.spring5webapp.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+
 /**
  * 
  * @author oguz
  * @since 2018.9.27
  *
  */
+
+@Entity
 public class Author {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String firstName;
 	private String lastName;
 	
+	@ManyToMany(mappedBy = "authors")
 	private Set<Book> books = new HashSet<>();
 	
 	public Author() {
