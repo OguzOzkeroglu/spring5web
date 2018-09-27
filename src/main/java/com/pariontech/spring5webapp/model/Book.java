@@ -28,9 +28,8 @@ public class Book {
 	private Long id;
 	private String title;
 	private String isbn;
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "publisher_id")
 	private Publisher publisher;
 
 	@ManyToMany
@@ -93,9 +92,6 @@ public class Book {
 		this.authors = authors;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -104,9 +100,6 @@ public class Book {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -124,9 +117,6 @@ public class Book {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", isbn=" + isbn + ", publisher=" + publisher + ", authors="
